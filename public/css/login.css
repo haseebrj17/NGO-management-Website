@@ -1,0 +1,252 @@
+html {
+    scroll-behavior: smooth;
+    font-size: 62.5%;
+}
+
+/*Variables*/
+
+:root{
+    --color-1: #ff914d;
+    --color-2: #031e3d;
+    --color-3: #d9d9d9;
+    --color-4: #00c2cb;
+    --color-5: #03989e;
+    --color-6: #85c8d0;
+    --color-7: #1f646c;
+    --color-8: #021D3C;
+}
+
+/*Universial Style*/
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    list-style: none;
+    text-decoration: none;
+}
+
+
+/* ######## Fonts used ########   */
+
+@font-face{
+	font-family: popregular;
+	src: url(../fonts/Poppins-Regular.ttf);
+    font-display: swap;
+}
+
+@font-face{
+	font-family: popbold;
+	src: url(../fonts/Poppins-Bold.ttf);
+    font-display: swap;
+}
+
+@font-face {
+    font-family: popthin;
+    src: url(../fonts/Poppins-Thin.ttf);
+    font-display: swap;
+}
+
+@font-face {
+    font-family: popsemibold;
+    src: url(../fonts/Poppins-SemiBold.ttf);
+    font-display: swap;
+}
+
+@font-face {
+    font-family: popmediumitalic;
+    src: url(../fonts/Poppins-MediumItalic.ttf);
+    font-display: swap;
+}
+
+@font-face {
+    font-family: popmedium;
+    src: url(../fonts/Poppins-Medium.ttf);
+    font-display: swap;
+}
+
+.error{
+    width: 100%;
+    height: 4.3rem;
+    background-color: var(--color-3);
+    color: var(--color-1);
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    opacity: 90%;
+    transition: 0.6s ease;
+}
+
+.error .close{
+    position: absolute;
+    top: 20%;
+    right: 2%;
+    background: transparent;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.error .msg{
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.login{
+    width: 100%;
+    height: 85rem;
+}
+
+.bg{
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-2);
+}
+
+.nav{
+    width: 100%;
+    height: 8rem;
+    display: flex;
+    flex-direction: row;
+}
+
+.nav img{
+    width: auto;
+    height: 3rem;
+    margin-top: 2rem;
+    margin-left: 2rem;
+}
+
+.nav h3{
+    font-size: 1.8rem;
+    color: var(--color-3);
+    float: right;
+    margin-left: 1.5rem;
+    margin-top: 2.6rem;
+    transition: ease-in 0.6s;
+}
+
+.nav h3:hover{
+    color: var(--color-1);
+}
+
+.flexbox{
+    width: 100%;
+    height: 85%;
+    display: flex;
+}
+
+.flexbox .img-log{
+    width: 60rem;
+    height: 67rem;
+    background-image: url(../img/logo.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    left: 10%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.flexbox .form-flex{
+    width: 35%;
+    height: 45%;
+    background-color: var(--color-3);
+    border-radius: 1.3rem;
+    position: absolute;
+    top: 50%;
+    right: 5%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+}
+
+.flexbox .form-flex h1{
+    font-size: 3.4rem;
+    font-family: popbold;
+    color: var(--color-7);
+    align-self: center;
+    margin-top: 1rem;
+}
+
+.flexbox .form-flex .form{
+    width: 95%;
+    height: 85%;
+    display: flex;
+    flex-direction: column;
+}
+
+label{
+    font-size: 2rem;
+    font-family: popregular;
+    color: var(--color-2);
+    margin-bottom: 1rem;
+    margin-left: 2.5rem;
+    margin-top: 1.4rem;
+}
+
+#email{
+    font-size: 2rem;
+    width: 95%;
+    padding: 1.2rem;
+    border: 0.2rem solid var(--color-2);
+    background: transparent;
+    border-radius: 0.8rem;
+    margin-left: 2.5rem;
+}
+
+#password{
+    font-size: 20px;
+    width: 95%;
+    padding: 12px;
+    border: 2px solid var(--color-2);
+    background: transparent;
+    border-radius: 0.8rem;
+    margin-left: 2.5rem;
+}
+
+
+#loginbtn{
+    font-size: 1.4rem;
+    font-family: popbold;
+    letter-spacing: 0.2rem;
+    padding: 16px 36px;
+    color: var(--color-2);
+    background-color: var(--color-3);
+    border-radius: 4px;
+    outline: none;
+    border: none;
+    box-shadow: 0 0 15px rgba(1,66,30,0.5);
+    transition: 0.6s ease;
+    cursor: pointer;
+    position: absolute;
+    left: 50%;
+    bottom: 4%;
+    transform: translateX(-50%);
+}
+
+#loginbtn:hover{
+    color: var(--color-1);
+    background-color: var(--color-7);
+}
+
+.footer{
+    width: 100%;
+    height: 4.5rem;
+    background-image: linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
+}
+
+.img{
+    width: 4rem;
+    height: 4rem;
+    background-image: url(../img/Insta.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    float: right;
+    margin-top: 0.2rem;
+    margin-right: 3rem;
+}

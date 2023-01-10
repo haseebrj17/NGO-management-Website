@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/login.css">
+    <script>
+        document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] +
+        ':35729/livereload.js?snipver=1"></' + 'script>')
+    </script>
+    <title>Document</title>
+</head>
+<body>
+    {{#if message}}
+    <div style="text-align: center;" id="error" class="error alert{{message.type}}">
+        <a style="cursor: pointer;" type="button" class="close" id="btnstate" value="Remove" onclick="removeDiv(this)"><img style="width: 10px; height: 10px;" type="image/svg" src="fonts/svg/cross-sign.svg" alt="cross"></a>
+        <div class="msg"><strong>{{message.intro}}</strong> {{message.message}}</div>
+    </div>
+    {{/if}}
+    <section class="login">
+        <div class="bg">
+            <div class="nav">
+                <a href="/">
+                    <img src="img/left-arrow.png" alt="Go Back">
+                    <h3>Go Back</h3>
+                </a>
+            </div>
+            <div class="flexbox">
+                <div class="img-log"></div>
+                <div class="form-flex">
+                    <h1>Login</h1>
+                    <form action="/Login" method="POST" class="form">
+                        <label for="email">Email:</label>
+                        <input type="text" name="email" required id="email">
+                        <label for="password">Password:</label>
+                        <input type="password" name="password" required id="password"></input>
+                        <input type="submit" id="loginbtn" value="Login">
+                    </form>
+                </div>
+            </div>
+            <div class="footer">
+                <a href="#"><div class="img"></div></a>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

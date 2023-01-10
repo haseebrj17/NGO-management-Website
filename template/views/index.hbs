@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">
+    <link rel="stylesheet" href="css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script>
+        document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] +
+        ':35729/livereload.js?snipver=1"></' + 'script>')
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <script src="/src/js/script.js"></script>
+    <script>
+        var swiper = new Swiper(".slide-content", {
+            slidesPerView: 3,
+            spaceBetween: 25,
+            loop: true,
+            centerSlide: 'true',
+            fade: 'true',
+            grabCursor: 'true',
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+                dynamicBullets: true,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+
+            breakpoints:{
+                0: {
+                slidesPerView: 1,
+                },
+                520: {
+                slidesPerView: 2,
+                },
+                950: {
+                slidesPerView: 3,
+                },
+            },
+        });
+    </script>
+    <title>Home</title>
+</head>
+<body>
+    {{#if message}}
+    <div style="text-align: center;" id="error" class="error alert{{message.type}}">
+        <a style="cursor: pointer;" type="button" class="close" id="btnstate" value="Remove" onclick="removeDiv(this)"><img style="width: 10px; height: 10px;" type="image/svg" src="fonts/svg/cross-sign.svg" alt="cross"></a>
+        <div class="msg"><strong>{{message.intro}}</strong> {{message.message}}</div>
+    </div>
+    {{/if}}
+    {{!-- <div class="overlay">
+        <div class="popup">
+            <div class="popupcontent">
+                <div>
+                    <img src="" alt="">
+                </div>
+                <p></p>
+            </div>
+        </div>
+    </div> --}}
+    <section class="bg-land">
+        <div class="nav-div">   
+            <div class="logo"></div> 
+            <div class="logoname">DOST-E-KHALQ</div>
+            <nav class="nav">
+                <ul>
+                    <li>
+                        <a href="">Become a Member</a>
+                        <a href="/Login">Login</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <div class="slider">
+            <div class="slider-title">
+                <H1>DOST-E-KHALQ</H1>
+                <div class="flex-box-slider">
+                    <h2>Friends of Humanity</h2>
+                    <p>Defined by our <span>Goals</span><br>Obligated by our <span>Morals</span><br>And Steadfast to our <span>Values</span></p>
+                    <a href="">Donate</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="projects">
+        <div class="slide-container swiper">
+            <div class="slide-content">
+                <div class="card-wrapper swiper-wrapper">
+                    <div class="card swiper-slide">
+                        <div class="image-content">
+                            <span class="overlay"></span>
+                            <div class="card-image">
+                                <img src="img/1.jpeg" alt="" class="card-img">
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h2 class="name">Project 1</h2>
+                            <p class="description">The lorem text the section that contains header with having open functionality. Lorem dolor sit amet consectetur adipisicing elit.</p>
+                            <button class="button">View More</button>
+                        </div>
+                    </div>
+                    <div class="card swiper-slide">
+                        <div class="image-content">
+                            <span class="overlay"></span>
+                            <div class="card-image">
+                                <img src="img/2.jpeg" alt="" class="card-img">
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h2 class="name">Project 1</h2>
+                            <p class="description">The lorem text the section that contains header with having open functionality. Lorem dolor sit amet consectetur adipisicing elit.</p>
+                            <button class="button">View More</button>
+                        </div>
+                    </div>
+                    <div class="card swiper-slide">
+                        <div class="image-content">
+                            <span class="overlay"></span>
+                            <div class="card-image">
+                                <img src="img/3.jpeg" alt="" class="card-img">
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h2 class="name">Project 1</h2>
+                            <p class="description">The lorem text the section that contains header with having open functionality. Lorem dolor sit amet consectetur adipisicing elit.</p>
+                            <button class="button">View More</button>
+                        </div>
+                    </div>
+                    <div class="card swiper-slide">
+                        <div class="image-content">
+                            <span class="overlay"></span>
+                            <div class="card-image">
+                                <img src="img/4.jpeg" alt="" class="card-img">
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h2 class="name">Project 1</h2>
+                            <p class="description">The lorem text the section that contains header with having open functionality. Lorem dolor sit amet consectetur adipisicing elit.</p>
+                            <button class="button">View More</button>
+                        </div>
+                    </div>
+                    <div class="card swiper-slide">
+                        <div class="image-content">
+                            <span class="overlay"></span>
+                            <div class="card-image">
+                                <img src="img/5.jpeg" alt="" class="card-img">
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h2 class="name">Project 1</h2>
+                            <p class="description">The lorem text the section that contains header with having open functionality. Lorem dolor sit amet consectetur adipisicing elit.</p>
+                            <button class="button">View More</button>
+                        </div>
+                    </div>
+                    <div class="card swiper-slide">
+                        <div class="image-content">
+                            <span class="overlay"></span>
+                            <div class="card-image">
+                                <img src="img/6.jpeg" alt="" class="card-img">
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h2 class="name">Project 1</h2>
+                            <p class="description">The lorem text the section that contains header with having open functionality. Lorem dolor sit amet consectetur adipisicing elit.</p>
+                            <button class="button">View More</button>
+                        </div>
+                    </div>
+                    <div class="card swiper-slide">
+                        <div class="image-content">
+                            <span class="overlay"></span>
+                            <div class="card-image">
+                                <img src="img/7.jpeg" alt="" class="card-img">
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h2 class="name">Project 1</h2>
+                            <p class="description">The lorem text the section that contains header with having open functionality. Lorem dolor sit amet consectetur adipisicing elit.</p>
+                            <button class="button">View More</button>
+                        </div>
+                    </div>
+                    <div class="card swiper-slide">
+                        <div class="image-content">
+                            <span class="overlay"></span>
+                            <div class="card-image">
+                                <img src="img/8.jpeg" alt="" class="card-img">
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h2 class="name">Project 1</h2>
+                            <p class="description">The lorem text the section that contains header with having open functionality. Lorem dolor sit amet consectetur adipisicing elit.</p>
+                            <button class="button">View More</button>
+                        </div>
+                    </div>
+                    <div class="card swiper-slide">
+                        <div class="image-content">
+                            <span class="overlay"></span>
+                            <div class="card-image">
+                                <img src="img/9.jpeg" alt="" class="card-img">
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h2 class="name">Project 1</h2>
+                            <p class="description">The lorem text the section that contains header with having open functionality. Lorem dolor sit amet consectetur adipisicing elit.</p>
+                            <button class="button">View More</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-button-next swiper-navBtn"></div>
+            <div class="swiper-button-prev swiper-navBtn"></div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </section>
+    <section class="aboutus">
+        <div class="bg">
+            <div class="aboutusbox">
+                <div class="aboutusflex">
+                    <h1>About Us</h1>
+                    <p>Dost-E-Khalg is student led NGO which aims to ameliorate the conditions of and provide services to those in Pakistan that are underprivileged, or victims of detrimental circumstances. The NGO aims to play multiple roles in it's capacity and scope as a student-run philanthropic organisation including but not limited to social work, community-based projects, arranging events for those that are underprivileged, sustain and conserve the environment and to provide relief. The founders and members of the NGO look forward with anticipation to meaningfully improving our community.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="founders">
+        <div class="flexbox">
+            <div class="founder-text">Founders</div>
+            <div class="founderflex">
+                <div class="founder1">
+                    <div class="founderimgflex1">
+                        <div class="founderimg1"></div>
+                        <h1>Jawad Dar</h1>
+                        <p></p>
+                    </div>
+                </div>
+                <div class="founder2">
+                    <div class="founderimgflex2">
+                        <div class="founderimg2"></div>
+                        <h1>Huzaifa Naveed</h1>
+                        <p></p>
+                    </div>
+                </div>
+                <div class="founder3">
+                    <div class="founderimgflex3">
+                        <div class="founderimg3"></div>
+                        <h1>Mahad Imran</h1>
+                        <p></p>
+                    </div>
+                </div>
+                <div class="founder4">
+                    <div class="founderimgflex4">
+                        <div class="founderimg4"></div>
+                        <h1>Syed Nabeel</h1>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="contact">
+        <div class="bg">
+            <div class="formcontainer">
+                <div class="form_container">
+                    <h1>Contact Us</h1>
+                    <form action="/Contact.html" method="POST" class="form">    
+                        <label for="name">Name:</label>
+                        <input type="text" required name="name" id="name">
+                        <label for="email">Email:</label>
+                        <input type="email" required name="email" id="email">
+                        <label for="message">Message:</label>
+                        <textarea type="text" required name="message" id="message"></textarea>
+                        <input type="submit" id="submitbtn" value="Submit">
+                    </form>
+                </div>
+            </div>
+            <div class="contact-icon">
+                <div class="contact-link">
+                    <img src="/img/Insta.png" alt="">
+                    <h3>Dostekhalq</h3>
+                </div>
+                <div class="contact-link">
+                    <img src="/img/Mail.png" alt="">
+                    <h3>Dostekhalq@gmail.com</h3>
+                </div>
+                <div class="contact-link">
+                    <img src="/img/Phone.png" alt="">
+                    <h3>+923323238304</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+    {{!-- <script>
+        function removeDiv(btnstate){
+            const errDiv = document.getElementById("error");
+            errDiv.parentNode.removeChild(errDiv);
+        }
+    </script>
+    <script>
+        const btntop = document.querySelector("#btntop");
+
+        btntop.addEventListener("click", function () {
+            window.scrollTo(0, 0);
+        });  
+    </script>
+    <script>
+        const btntop2 = document.querySelector("#btntop2");
+
+        btntop2.addEventListener("click", function () {
+            window.scrollTo(0, 0);
+        });
+    </script>
+    <script>
+        const openPopUp = document.querySelectorAll('[data-popup-target]');
+        const closePopUp = document.querySelectorAll('[data-close-button]');
+        const overlay = document.getElementById('overlay');
+
+        openPopUp.forEach(button => {
+            button.addEventListener('click', () => {
+                const popup = document.querySelector(button.dataset.popupTarget)
+                openPopup(popup)
+            })
+        })
+
+        overlay.addEventListener('click', () => {
+            const popups = document.querySelectorAll('.popup.active')
+            popups.forEach(popup => {
+                closePopup(popup)
+            })
+        })
+
+        closePopUp.forEach(button => {
+            button.addEventListener('click', () => {
+                const popup = button.closest('.popup')
+                closePopup(popup)
+            })
+        })
+
+        function openPopup(popup) {
+            if (popup == null) return
+            popup.classList.add('active')
+            overlay.classList.add('active')
+        }
+
+        function closePopup(popup) {
+            if (popup == null) return
+            popup.classList.remove('active')
+            overlay.classList.remove('active')
+        }
+    </script> --}}
+</body>
+</html>

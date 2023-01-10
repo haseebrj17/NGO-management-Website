@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/chat.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+      integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk="
+      crossorigin="anonymous"
+    />
+    <script>
+        document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] +
+        ':35729/livereload.js?snipver=1"></' + 'script>')
+    </script>
+    <title>Document</title>
+</head>
+<body>
+    {{#if message}}
+    <div style="text-align: center;" id="error" class="error alert{{message.type}}">
+        <a style="cursor: pointer;" type="button" class="close" id="btnstate" value="Remove" onclick="removeDiv(this)"><img style="width: 10px; height: 10px;" type="image/svg" src="fonts/svg/cross-sign.svg" alt="cross"></a>
+        <div class="msg"><strong>{{message.intro}}</strong> {{message.message}}</div>
+    </div>
+    {{/if}}
+    <section class="land">
+        <div class="bg">
+            {{>nav}}
+            <div class="chat-container">
+                <header class="chat-header">
+                    <h1><i class="fas fa-smile"></i> Dost Community</h1>
+                    <a id="leave-btn" class="btn">Leave Room</a>
+                </header>
+                <main class="chat-main">
+                    <div class="chat-sidebar">
+                        <h3 class="room"><i class="fas fa-comments"></i> Room Name:</h3>
+                        <h2 id="room-name"></h2>
+                        <h3 class="users"><i class="fas fa-users"></i> Users:</h3>
+                        <ul id="users"></ul>
+                    </div>
+                    <div class="chat-messages"></div>
+                </main>
+                <div class="chat-form-container">
+                    <form id="chat-form">
+                        <input
+                        id="msg"
+                        type="text"
+                        placeholder="Enter Message"
+                        required
+                        autocomplete="off"
+                        />
+                        <button class="btn" id="btn"><i class="fas fa-paper-plane"></i> Send</button>
+                    </form>
+                    <div id="line"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.9.2/qs.min.js"
+      integrity="sha256-TDxXjkAUay70ae/QJBEpGKkpVslXaHHayklIVglFRT4="
+      crossorigin="anonymous"
+    ></script>
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+</body>
+</html>

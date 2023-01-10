@@ -1,0 +1,542 @@
+html {
+    scroll-behavior: smooth;
+    font-size: 62.5%;
+}
+
+/*Variables*/
+
+:root{
+    --color-1: #ff914d;
+    --color-2: #031e3d;
+    --color-3: #d9d9d9;
+    --color-4: #00c2cb;
+    --color-5: #03989e;
+    --color-6: #85c8d0;
+    --color-7: #1f646c;
+    --color-8: #021D3C;
+}
+
+/*Universial Style*/
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    list-style: none;
+    text-decoration: none;
+}
+
+
+/* ######## Fonts used ########   */
+
+@font-face{
+	font-family: popbolditalic;
+	src: url(../fonts/Poppins-BoldItalic.ttf);
+    font-display: swap;
+}
+
+@font-face{
+	font-family: popextralightitalic;
+	src: url(../fonts/Poppins-ExtraLightItalic.ttf);
+    font-display: swap;
+}
+
+@font-face {
+    font-family: popregular;
+    src: url(../fonts/Poppins-Regular.ttf);
+    font-display: swap;
+}
+
+@font-face {
+    font-family: popthin;
+    src: url(../fonts/Poppins-Thin.ttf);
+    font-display: swap;
+}
+
+@font-face {
+    font-family: popmedium;
+    src: url(../fonts/Poppins-Medium.ttf);
+    font-display: swap;
+}
+
+@font-face {
+    font-family: popbold;
+    src: url(../fonts/Poppins-Bold.ttf);
+    font-display: swap;
+}
+
+.error{
+    width: 100%;
+    height: 4.3rem;
+    background-color: var(--color-3);
+    color: var(--color-1);
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    opacity: 90%;
+    transition: 0.6s ease;
+}
+
+.error .close{
+    position: absolute;
+    top: 20%;
+    right: 2%;
+    background: transparent;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.error .msg{
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.landing{
+    width: 100%;
+    height: 84rem;
+}
+
+.bg{
+    width: 100%;
+    height: 100%;
+}
+
+.nav-div{
+    width: 100%;
+    height: 8rem;
+}
+
+.logo{
+    float: left;
+    height: 8rem;
+    width: 8rem;
+    margin-top: 0.5rem;
+    margin-left: 3rem;
+    background-image: url(../img/Logo.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 1;
+}
+
+.logoname{
+    position: absolute;
+    float: left;
+    line-height: 8rem;
+    letter-spacing: 0.145rem;
+    width: auto;
+    font-size: 3.2rem;
+    color: var(--color-2);
+    display: inline;
+    font-style: italic;
+    margin-left: 1.5rem;
+    font-family: popbolditalic;
+    z-index: 1;
+}
+
+.nav{
+    float: right;
+}
+
+.nav ul li{ 
+    display: inline-block;
+    list-style-type: none;
+    margin-right: 2.5rem;
+}
+
+.nav ul li a{
+    font-family: popregular;
+    text-decoration: none;
+    color: var(--color-2);
+    line-height: 8rem;
+    padding: 1.4rem 2.2rem;
+    font-size: 1.5rem;
+    letter-spacing: 0.2rem;
+    transition: 0.6s ease;
+}
+
+.nav ul li a:hover{
+     background-color: var(--color-5);
+     color: #ff914d;
+}
+
+.section1{
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+.addtimeline{
+    width: 50%;
+    height: 65%;
+    background-color: var(--color-3);
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 25%;
+    left: 10%;
+}
+
+.form{
+    width: 95%;
+    height: 85%;
+    display: flex;
+    flex-direction: column;
+}
+
+.form h1{
+    font-size: 2.8rem;
+    letter-spacing: 0.2rem;
+    position: relative;
+    left: 50%;
+    transform: translateX(-15%);
+    margin-top: 1.5rem;
+    color: var(--color-2);
+}
+
+.form label{
+    font-size: 2rem;
+    font-family: popregular;
+    color: var(--color-2);
+    margin-bottom: 1rem;
+    margin-left: 3.5rem;
+    margin-top: 1.4rem;
+}
+
+#name{
+    font-size: 2rem;
+    width: 95%;
+    padding: 1.2rem;
+    border: 0.2rem solid var(--color-2);
+    background: transparent;
+    border-radius: 0.8rem;
+    margin-left: 3.5rem;
+}
+
+#time{
+    font-size: 2rem;
+    width: 95%;
+    padding: 1.2rem;
+    border: 0.2rem solid var(--color-2);
+    background: transparent;
+    border-radius: 0.8rem;
+    margin-left: 3.5rem;
+}
+
+#discription{
+    font-size: 20px;
+    height: 10rem;
+    width: 95%;
+    padding: 12px;
+    border: 2px solid var(--color-2);
+    background: transparent;
+    border-radius: 0.8rem;
+    margin-left: 3.5rem;
+    min-width: 95%;
+    max-width: 95%;
+    max-height: 12rem;
+}
+
+#addevent{
+    font-size: 1.4rem;
+    font-family: popbold;
+    letter-spacing: 0.2rem;
+    padding: 16px 36px;
+    color: var(--color-2);
+    background-color: var(--color-3);
+    border-radius: 4px;
+    outline: none;
+    border: none;
+    box-shadow: 0 0 15px rgba(1,66,30,0.5);
+    transition: 0.6s ease;
+    cursor: pointer;
+    position: absolute;
+    left: 50%;
+    bottom: 4%;
+    transform: translateX(-50%);
+}
+
+#addevent:hover{
+    color: var(--color-1);
+    background-color: var(--color-7);
+}
+
+.instruction{
+    width: 25%;
+    height: 60%;
+    background-color: var(--color-3);
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 27%;
+    right: 0%;
+}
+
+.taskform{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.taskform h1{
+    font-size: 2.2rem;
+    position: relative;
+    left: 50%;
+    transform: translateX(-15%);
+    letter-spacing: 0.1rem;
+    color: var(--color-2);
+    margin-top: 1.5rem;
+}
+
+#member{
+    font-size: 20px;
+    width: 90%;
+    padding: 12px;
+    border: 2px solid var(--color-2);
+    background: transparent;
+    border-radius: 0.8rem;
+    margin-left: 2.2rem;
+}
+
+#tasks{
+    font-size: 20px;
+    width: 90%;
+    padding: 12px;
+    border: 2px solid var(--color-2);
+    background: transparent;
+    border-radius: 0.8rem;
+    margin-left: 2.2rem;
+    min-width: 90%;
+    max-width: 90%;
+    max-height: 15rem;
+}
+
+#deadline{
+    font-size: 2rem;
+    width: 90%;
+    padding: 1.2rem;
+    border: 0.2rem solid var(--color-2);
+    background: transparent;
+    border-radius: 0.8rem;
+    margin-left: 2.2rem;
+}
+
+.taskform label{
+    font-size: 2rem;
+    font-family: popregular;
+    color: var(--color-2);
+    margin-bottom: 1rem;
+    margin-left: 2.2rem;
+    margin-top: 1.4rem;
+}
+
+#addtask{
+    font-size: 1.4rem;
+    font-family: popbold;
+    letter-spacing: 0.2rem;
+    padding: 16px 36px;
+    color: var(--color-2);
+    background-color: var(--color-3);
+    border-radius: 4px;
+    outline: none;
+    border: none;
+    box-shadow: 0 0 15px rgba(1,66,30,0.5);
+    transition: 0.6s ease;
+    cursor: pointer;
+    position: absolute;
+    left: 50%;
+    bottom: 4%;
+    transform: translateX(-40%);
+}
+
+#addtask:hover{
+    color: var(--color-1);
+    background-color: var(--color-7);
+}
+
+.section2{
+    width: 100%;
+    height: 74rem;
+    display: flex;
+}
+
+.file-edit{
+    width: 50%;
+    height: 90%;
+    background-color: var(--color-3);
+}
+
+.file-edit h1{
+    font-size: 2.4rem;
+    letter-spacing: 0.1rem;
+    color: var(--color-2);
+    position: relative;
+    left: 50%;
+    transform: translateX(-10%);
+    margin-top: 2rem;
+}
+
+.fliesandbtn{
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+.btnfiles{
+    width: 20%;
+    height: 90%;
+    position: relative;
+    left: 0%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.btnfiles a{
+    font-size: 1.5rem;
+    font-family: popmedium;
+    color: var(--color-2);
+    letter-spacing: 0.2rem;
+    padding: 1.2rem 2.2rem;
+    background-color: var(--color-3);
+    transition: ease 0.6s;
+}
+
+.btnfiles a:hover{
+    color: var(--color-1);
+    background-color: var(--color-7);
+}
+
+.strong{
+    overflow: scroll;
+}
+
+.newmember{
+    width: 40%;
+    height: 90%;
+    background-color: var(--color-3);
+    display: flex;
+    flex-direction: column;
+    border-radius: 1.2rem;
+    position: relative;
+    top: 0%;
+    left: 6%;
+}
+
+.formnew{
+    width: 95%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.formnew h1{
+    font-size: 2.2rem;
+    line-height: 1rem;
+    letter-spacing: 0.1rem;
+    color: var(--color-2);
+    position: relative;
+    left: 50%;
+    transform: translateX(-12%);
+    margin-top: 2rem;
+}
+
+.formnew label{
+    font-size: 1.5rem;
+    font-family: popregular;
+    color: var(--color-2);
+    margin-bottom: 1rem;
+    margin-left: 3.5rem;
+    margin-top: 1.4rem;
+}
+
+#username{
+    font-size: 1.4rem;
+    width: 95%;
+    padding: 1.2rem;
+    border: 0.2rem solid var(--color-2);
+    background: transparent;
+    border-radius: 0.8rem;
+    margin-left: 3.5rem;
+}
+
+#email{
+    font-size: 1.4rem;
+    width: 95%;
+    padding: 1.2rem;
+    border: 0.2rem solid var(--color-2);
+    background: transparent;
+    border-radius: 0.8rem;
+    margin-left: 3.5rem;
+}
+
+#password{
+    font-size: 1.4rem;
+    width: 95%;
+    padding: 12px;
+    border: 2px solid var(--color-2);
+    background: transparent;
+    border-radius: 0.8rem;
+    margin-left: 3.5rem;
+}
+
+#about{
+    font-size: 1.4rem;
+    width: 95%;
+    padding: 12px;
+    border: 2px solid var(--color-2);
+    background: transparent;
+    border-radius: 0.8rem;
+    margin-left: 3.5rem;
+}
+
+#department{
+    font-size: 20px;
+    width: 95%;
+    padding: 12px;
+    border: 2px solid var(--color-2);
+    background: transparent;
+    border-radius: 0.8rem;
+    margin-left: 3.5rem;
+}
+
+#memberoradmin{
+    font-size: 20px;
+    width: 95%;
+    padding: 12px;
+    border: 2px solid var(--color-2);
+    background: transparent;
+    border-radius: 0.8rem;
+    margin-left: 3.5rem;
+}
+
+#registerbtn{
+    font-size: 1.4rem;
+    font-family: popbold;
+    letter-spacing: 0.2rem;
+    padding: 16px 36px;
+    color: var(--color-2);
+    background-color: var(--color-3);
+    border-radius: 4px;
+    outline: none;
+    border: none;
+    box-shadow: 0 0 15px rgba(1,66,30,0.5);
+    transition: 0.6s ease;
+    cursor: pointer;
+    position: absolute;
+    left: 50%;
+    bottom: 2%;
+    transform: translateX(-50%);
+}
+
+#registerbtn:hover{
+    color: var(--color-1);
+    background-color: var(--color-7);
+}
+
+

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/admin.css">
+    <script>
+        document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] +
+        ':35729/livereload.js?snipver=1"></' + 'script>')
+    </script>
+    <title>Document</title>
+</head>
+<body>
+    {{#if message}}
+    <div style="text-align: center;" id="error" class="error alert{{message.type}}">
+        <a style="cursor: pointer;" type="button" class="close" id="btnstate" value="Remove" onclick="removeDiv(this)"><img style="width: 10px; height: 10px;" type="image/svg" src="fonts/svg/cross-sign.svg" alt="cross"></a>
+        <div class="msg"><strong>{{message.intro}}</strong> {{message.message}}</div>
+    </div>
+    {{/if}}
+    <section class="landing">
+        <div class="bg">
+            {{>nav}}
+            <div class="section1">
+                <div class="addtimeline">
+                    <form action="/Admin/Timeline" method="POST" class="form">
+                        <h1>Add to Timeline</h1>
+                        <label for="name">Event name:</label>
+                        <input type="text" name="name" required id="name">
+                        <label for="time">Time:</label>
+                        <input type="date" name="time" required id="time">
+                        <label for="discription">Discription:</label>
+                        <textarea type="discription" name="discription" required id="discription"></textarea>
+                        <input type="submit" id="addevent" value="Add Event">
+                    </form>
+                </div>
+                <div class="instruction">
+                    <form action="/Admin/Tasks" method="POST" class="taskform">
+                        <h1>Assign Tasks</h1>
+                        <label for="member">Member</label>
+                        <select name="member" id="member">
+                            {{#each member}}<option>{{this.username}}</option>{{/each}}
+                        </select>
+                        <label for="tasks">Discription:</label>
+                        <textarea type="text" name="tasks" required id="tasks"></textarea>
+                        <label for="deadline">Deadline</label>
+                        <input name="deadline" id="deadline" type="date" value="Deadline"> 
+                        <input type="submit" id="addtask" value="Add Task">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section2">
+        <div class="file-edit">
+            <h1>Edit Files</h1>
+            <div class="fliesandbtn">
+                <div class="btnfiles">
+                    <a id="financials" href="/Admin/Files/Financials">Financials</a>
+                    <a id="images" href="/Admin/Files/Images">Images</a>
+                    <a id="assets" href="/Admin/Files/Assets">Assets</a>
+                </div>
+                {{#if adminData}}
+                    <strong class="strong">
+                        {{#each adminData.message}}
+                            <h4 style="font-size: 20px; margin-top: 20px; color: #031e3d; letter-spacing: 2px; margin-left: 25px; display: flex;">{{this}}
+                                <a href="/Download/{{this}}">
+                                    <img src="assets/DownloadIcon.png" alt="Download" style="width: 30px; height: 30px; margin-left: 15px; position: relative; top: -10%;">
+                                </a>
+                                <a href="/Delete/{{this}}">
+                                    <img src="assets/delete.png" alt="Download" style="width: 30px; height: 30px; margin-left: 15px; position: relative; top: -10%;">
+                                </a>
+                            </h4>
+                        {{/each}}
+                    </strong>
+                {{/if}}
+            </div>
+        </div>
+        <div class="newmember">
+            <div>
+                <form action="/Admin/Register" method="POST" class="formnew">
+                    <h1>Add New Member</h1>
+                    <label for="username">Username:</label>
+                    <input type="text" name="username" required id="username">
+                    <label for="email">Email:</label>
+                    <input type="email" name="email" required id="email">
+                    <label for="password">Password:</label>
+                    <input type="password" name="password" required id="password">
+                    <label for="about">About:</label>
+                    <input type="text" name="about" required id="about">
+                    <label for="department">Department:</label>
+                    <select name="department" id="department">
+                        <option value="Finanace">Finanace</option>
+                        <option value="Human Resources">Human Resources</option>
+                        <option value="Logistics">Logistics</option>
+                        <option value="Media and PR">Media and PR</option>
+                        <option value="Operations">Operations</option>
+                    </select>
+                    <label for="memberoradmin">Position:</label>
+                    <select name="memberoradmin" id="memberoradmin">
+                        <option value="Member">Member</option>
+                        <option value="Admin">Admin</option>
+                    </select>
+                    <input type="submit" id="registerbtn" value="Add User">
+                </form>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

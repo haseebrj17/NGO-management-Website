@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/files.css">
+    <script>
+        document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] +
+        ':35729/livereload.js?snipver=1"></' + 'script>')
+    </script>
+    <title>Document</title>
+</head>
+<body>
+    {{#if message}}
+    <div style="text-align: center;" id="error" class="error alert{{message.type}}">
+        <a style="cursor: pointer;" type="button" class="close" id="btnstate" value="Remove" onclick="removeDiv(this)"><img style="width: 10px; height: 10px;" type="image/svg" src="fonts/svg/cross-sign.svg" alt="cross"></a>
+        <div class="msg"><strong>{{message.intro}}</strong> {{message.message}}</div>
+    </div>
+    {{/if}}
+    <section class="files">
+        <div class="bg">
+        {{>nav}}
+            <div class="files-flex">
+                <div class="get-files">
+                    <a href="/Files/List/Financials" id="financials"><h1>Financials</h1></a>
+                    <a href="/Files/List/Images" id="images"><h1>Images</h1></a>
+                    <a href="/Files/List/Assets" id="assets"><h1>Assets</h1></a>
+                    <button url="Files/Uplaod" id="upload">Upload</button>
+                </div>
+                <div class="files-box">
+                    <div class="file-classes">
+                        <div class="financials">
+                            <div class="msg">
+                                {{#if data}}
+                                    <strong>{{#each data.message}}
+                                        <h4 style="font-size: 20px; margin-top: 10px; color: #031e3d; letter-spacing: 2px; margin-left: 15px; display: flex;">{{this}}
+                                            <a href="/Download/{{this}}">
+                                                <img src="assets/DownloadIcon.png" alt="Download" style="width: 30px; height: 30px; margin-left: 15px; position: relative; top: -10%;">
+                                            </a>
+                                        </h4>{{/each}}
+                                    </strong>
+                                {{/if}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
