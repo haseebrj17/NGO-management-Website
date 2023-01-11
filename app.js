@@ -21,6 +21,7 @@ const db = require("./src/db/db");
 const Register = require("./src/models/user");
 const Tasks = require("./src/models/tasks");
 const Timeline = require("./src/models/timeline");
+const checkList = require("./src/models/checklist");
 const auth = require("./src/middleware/auth");
 const logKey = process.env.SEC_KEY_SES;
 const formatMessage = require("./src/users/messages");
@@ -234,7 +235,7 @@ const calendar = new Calendar({
 
 const calHtml = calendar.toJSON();
 
-var calendarTimeline = {calendar: calHtml, members: "none", username: "", about: "", department: "", memberoradmin: ""};
+var calendarTimeline = {calendar: calHtml, username: "", about: "", department: "", memberoradmin: ""};
 
 
 // //ROUTES
@@ -416,45 +417,55 @@ app.get("/Delete/:filename", async (req, res) => {
     }
 })
 
-app.get('/Test', (req, res) => {
-    const calendar = new Calendar({
-        year: Date.now.year,
-        month: 0
-    });
+app.get('/Test', async (req, res) => {
+    const id = req.cookies.id
 
-    for (let i = 0; i < calendar.length; i++) {
-        let a = calendar[i].split('Sunday');
-        a.splice(2, 2);
-        calendar[i] = a.join('Financials%2f');
-    const calHtml = calendar.toJSON();
-    
-    var calendarTimeline = {calendar: calHtml};
-    res.send(calendarTimeline)
-    }
+    const member = await Register.findOne({_id: id}, { username: 1, about: 1, department: 1, memberoradmin: 1, _id: 0 })
+
+    const user = member.username
+
+    const tasks = await Tasks.find({username: user}, { task: 1, deadline: 1, _id: 0 })
+
+    calendarTimeline.about = member.about
+    calendarTimeline.department = member.department
+    calendarTimeline.memberoradmin = member.memberoradmin
+    calendarTimeline.username = member.username
+
+
+    const mergedObject = {
+        ...calendarTimeline,
+        ...tasks
+    };
+
+    console.log(mergedObject)
+
+    res.send(mergedObject)
 });
 
 app.get('/Tasks', auth, async (req, res) =>{
 
-    const user = req.cookies.user
+    const id = req.cookies.id
 
-    const member = await Register.findOne({user}, { username: 1, about: 1, department: 1, memberoradmin: 1, _id: 0 })
-    console.log(member)
+    const member = await Register.findOne({_id: id}, { username: 1, about: 1, department: 1, memberoradmin: 1, _id: 0 })
 
-    const tasks = await Tasks.find({user}, { task: 1, deadline: 1, _id: 0 })
-    console.log(tasks)
+    const user = member.username
 
-    // const avatar = `https://avatars.dicebear.com/api/micha/${member.username}.svg`
-    
+    const tasks = await Tasks.find({username: user}, { task: 1, deadline: 1, _id: 0 })
+
     if (req.cookies.keyrem) {
-        if (req.cookies.user) {
-            calendarTimeline.username = user;
-            calendarTimeline.members = member;
-            calendarTimeline.about = member.about
-            calendarTimeline.department = member.department
-            calendarTimeline.memberoradmin = member.memberoradmin
+        calendarTimeline.members = member
+        calendarTimeline.about = member.about
+        calendarTimeline.department = member.department
+        calendarTimeline.memberoradmin = member.memberoradmin
+        calendarTimeline.username = member.username
 
-            res.render('Tasks.hbs', calendarTimeline)
-        }
+
+        const mergedObject = {
+            ...calendarTimeline,
+            ...tasks
+        };
+
+        res.render('Tasks.hbs', mergedObject)
     } else {
         logData.loggedIn = false;
         res.render('/Tasks')
@@ -600,19 +611,27 @@ app.post('/Login', async (req, res) =>{
                 const token = await userEmail.generateAuthToken();
                 console.log(token);
 
-                const userName = await userEmail.username;
+                const id = await userEmail.id;
 
-                res.cookie("keyrem", token, userName, {
+                const user = await userEmail.username;
+
+                res.cookie("keyrem", token, {
                     expires:new Date(Date.now() + 5000000),
                     httpOnly:true,
                     secure:true
                 });
 
-                res.cookie("user", userName, {
+                res.cookie("id", id, {
                     expires:new Date(Date.now() + 5000000),
                     httpOnly:true,
                     secure:true
-                })
+                });
+
+                res.cookie("user", user, {
+                    expires:new Date(Date.now() + 5000000),
+                    httpOnly:true,
+                    secure:true
+                });
 
                 req.session.message = {
                     type: 'Success',
@@ -650,35 +669,37 @@ app.post('/Login', async (req, res) =>{
     }
 });
 
-// app.get('/Logout.html', auth , async (req, res) =>{
-//     try {
-//         req.user.tokens = req.user.tokens.filter((instance) => {
-//                 return instance.token !== req.token
-//         });
+app.get('/Logout', auth , async (req, res) =>{
+    try {
+        req.user.tokens = req.user.tokens.filter((instance) => {
+                return instance.token !== req.token
+        });
 
-//         res.clearCookie("keyrem");
+        res.clearCookie("keyrem");
+        res.clearCookie("id");
+        res.clearCookie("user");
 
-//         console.log("Logged out successfully");
+        console.log("Logged out successfully");
 
-//         await req.user.save();
+        await req.user.save();
 
-//         req.session.message = {
-//             type: 'Success',
-//             intro: 'Logged Out Successfully ',
-//             message: 'login or register!'
-//         }
-//         res.redirect('/Login.html')
-//         delete req.session.message
+        req.session.message = {
+            type: 'Success',
+            intro: 'Logged Out Successfully ',
+            message: 'login or register!'
+        }
+        res.redirect('/Login')
+        delete req.session.message
 
-//     } catch (error) {
-//         res.status(500).redner('index.hbs')
-//         req.session.message = {
-//             type: 'Backend problem',
-//             intro: 'Something went wrong ',
-//             message: 'please try again later'
-//         }
-//     }
-// });
+    } catch (error) {
+        res.status(500).redner('index.hbs')
+        req.session.message = {
+            type: 'Backend problem',
+            intro: 'Something went wrong ',
+            message: 'please try again later'
+        }
+    }
+});
 
 // //Creating a new user in DB
 
