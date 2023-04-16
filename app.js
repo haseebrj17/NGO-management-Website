@@ -340,6 +340,7 @@ app.get("/Files/List/Assets", async (req, res) => {
   delete req.session.data;
 });
 
+
 app.get("/List", async (req, res) => {
     let r = await s3.listObjectsV2({ Bucket: BUCKET }).promise();
     let x = r.Contents.map((item) => item.Key);
