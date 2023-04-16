@@ -14,7 +14,7 @@
 <body>
     {{#if message}}
     <div style="text-align: center;" id="error" class="error alert{{message.type}}">
-        <a style="cursor: pointer;" type="button" class="close" id="btnstate" value="Remove" onclick="removeDiv(this)"><img style="width: 10px; height: 10px;" type="image/svg" src="fonts/svg/cross-sign.svg" alt="cross"></a>
+        <a style="cursor: pointer;" type="button" class="close" id="btnstate" value="Remove" onclick="removeDiv(this)"><img style="width: 10px; height: 10px;" type="image/svg" src="img/cross-sign.svg" alt="cross"></a>
         <div class="msg"><strong>{{message.intro}}</strong> {{message.message}}</div>
     </div>
     {{/if}}
@@ -44,5 +44,11 @@
             </div>
         </div>
     </section>
+    <script>
+        function removeDiv(btnstate){
+            const errDiv = document.getElementById("error");
+            errDiv.parentNode.removeChild(errDiv);
+        }
+    </script>
 </body>
 </html>

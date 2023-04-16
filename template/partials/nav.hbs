@@ -7,7 +7,15 @@
                 <a href="/Tasks">Tasks</a>
                 <a href="/Rooms">Community</a>
                 <a href="/Files">Files</a>
-                {{# if loggedIn}}
+                {{#if loggedIn}}
+                    <li><a href="/Logout">Logout</a></li>
+                    <li><a href="/Admin">Admin</a></li>
+                {{/if}}
+                {{#if calendarTimeline.loggedIn}}
+                    <li><a href="/Logout">Logout</a></li>
+                    <li><a href="/Admin">Admin</a></li>
+                {{/if}}
+                {{#if user.loggedIn}}
                     <li><a href="/Logout">Logout</a></li>
                     <li><a href="/Admin">Admin</a></li>
                 {{/if}}

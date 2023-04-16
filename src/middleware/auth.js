@@ -9,6 +9,7 @@ const auth = async (req, res, next) =>{
     
         if (token){ 
             const userVerified = jwt.verify(token, process.env.SEC_KEY);
+
             console.log('User is authentic');
 
             const user = await Register.findOne({_id:userVerified._id})

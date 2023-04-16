@@ -597,12 +597,12 @@ html {
     border-radius: 1.2rem;
 }
 
-.contact{
+#contact{
     height: 76.8rem;
     width: 100%;
 }
 
-.contact .bg{
+#contact .bg{
     height: 100%;
     width: 100%;
     background-image: linear-gradient(180deg, rgba(0, 88, 91, 1), rgba(32, 109, 112, 1), rgba(126, 171, 172, 1));

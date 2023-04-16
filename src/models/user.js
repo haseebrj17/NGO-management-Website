@@ -59,7 +59,6 @@ userSchema.methods.generateAuthToken = async function(){
         await this.save();
         return token;
     } catch (err) {
-        // res.send("Something went wrong" + err);
         console.log("Something went wrong" + err);
     }
 }

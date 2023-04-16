@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="css/swiper-bundle.min.css">
     <link rel="stylesheet" href="css/style.css">
     <script>
@@ -13,6 +14,9 @@
     </script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
     <script src="/src/js/script.js"></script>
+    <script src="/node_modules/jquery/dist/jquery.slim.min.js"></script>
+    <script src="/node_modules/popper.js/dist/umd/popper.min.js"></script>
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <script>
         var swiper = new Swiper(".slide-content", {
             slidesPerView: 3,
@@ -49,20 +53,10 @@
 <body>
     {{#if message}}
     <div style="text-align: center;" id="error" class="error alert{{message.type}}">
-        <a style="cursor: pointer;" type="button" class="close" id="btnstate" value="Remove" onclick="removeDiv(this)"><img style="width: 10px; height: 10px;" type="image/svg" src="fonts/svg/cross-sign.svg" alt="cross"></a>
+        <a style="cursor: pointer;" type="button" class="close" id="btnstate" value="Remove" onclick="removeDiv(this)"><img style="width: 10px; height: 10px;" type="image/svg" src="img/cross-sign.svg" alt="cross"></a>
         <div class="msg"><strong>{{message.intro}}</strong> {{message.message}}</div>
     </div>
     {{/if}}
-    {{!-- <div class="overlay">
-        <div class="popup">
-            <div class="popupcontent">
-                <div>
-                    <img src="" alt="">
-                </div>
-                <p></p>
-            </div>
-        </div>
-    </div> --}}
     <section class="bg-land">
         <div class="nav-div">   
             <div class="logo"></div> 
@@ -70,7 +64,7 @@
             <nav class="nav">
                 <ul>
                     <li>
-                        <a href="">Become a Member</a>
+                        <a href="#contact">Become a Member</a>
                         <a href="/Login">Login</a>
                     </li>
                 </ul>
@@ -82,138 +76,12 @@
                 <div class="flex-box-slider">
                     <h2>Friends of Humanity</h2>
                     <p>Defined by our <span>Goals</span><br>Obligated by our <span>Morals</span><br>And Steadfast to our <span>Values</span></p>
-                    <a href="">Donate</a>
+                    <a href="#contact">Donate</a>
                 </div>
             </div>
         </div>
     </section>
-    <section class="projects">
-        <div class="slide-container swiper">
-            <div class="slide-content">
-                <div class="card-wrapper swiper-wrapper">
-                    <div class="card swiper-slide">
-                        <div class="image-content">
-                            <span class="overlay"></span>
-                            <div class="card-image">
-                                <img src="img/1.jpeg" alt="" class="card-img">
-                            </div>
-                        </div>
-                        <div class="card-content">
-                            <h2 class="name">Project 1</h2>
-                            <p class="description">The lorem text the section that contains header with having open functionality. Lorem dolor sit amet consectetur adipisicing elit.</p>
-                            <button class="button">View More</button>
-                        </div>
-                    </div>
-                    <div class="card swiper-slide">
-                        <div class="image-content">
-                            <span class="overlay"></span>
-                            <div class="card-image">
-                                <img src="img/2.jpeg" alt="" class="card-img">
-                            </div>
-                        </div>
-                        <div class="card-content">
-                            <h2 class="name">Project 1</h2>
-                            <p class="description">The lorem text the section that contains header with having open functionality. Lorem dolor sit amet consectetur adipisicing elit.</p>
-                            <button class="button">View More</button>
-                        </div>
-                    </div>
-                    <div class="card swiper-slide">
-                        <div class="image-content">
-                            <span class="overlay"></span>
-                            <div class="card-image">
-                                <img src="img/3.jpeg" alt="" class="card-img">
-                            </div>
-                        </div>
-                        <div class="card-content">
-                            <h2 class="name">Project 1</h2>
-                            <p class="description">The lorem text the section that contains header with having open functionality. Lorem dolor sit amet consectetur adipisicing elit.</p>
-                            <button class="button">View More</button>
-                        </div>
-                    </div>
-                    <div class="card swiper-slide">
-                        <div class="image-content">
-                            <span class="overlay"></span>
-                            <div class="card-image">
-                                <img src="img/4.jpeg" alt="" class="card-img">
-                            </div>
-                        </div>
-                        <div class="card-content">
-                            <h2 class="name">Project 1</h2>
-                            <p class="description">The lorem text the section that contains header with having open functionality. Lorem dolor sit amet consectetur adipisicing elit.</p>
-                            <button class="button">View More</button>
-                        </div>
-                    </div>
-                    <div class="card swiper-slide">
-                        <div class="image-content">
-                            <span class="overlay"></span>
-                            <div class="card-image">
-                                <img src="img/5.jpeg" alt="" class="card-img">
-                            </div>
-                        </div>
-                        <div class="card-content">
-                            <h2 class="name">Project 1</h2>
-                            <p class="description">The lorem text the section that contains header with having open functionality. Lorem dolor sit amet consectetur adipisicing elit.</p>
-                            <button class="button">View More</button>
-                        </div>
-                    </div>
-                    <div class="card swiper-slide">
-                        <div class="image-content">
-                            <span class="overlay"></span>
-                            <div class="card-image">
-                                <img src="img/6.jpeg" alt="" class="card-img">
-                            </div>
-                        </div>
-                        <div class="card-content">
-                            <h2 class="name">Project 1</h2>
-                            <p class="description">The lorem text the section that contains header with having open functionality. Lorem dolor sit amet consectetur adipisicing elit.</p>
-                            <button class="button">View More</button>
-                        </div>
-                    </div>
-                    <div class="card swiper-slide">
-                        <div class="image-content">
-                            <span class="overlay"></span>
-                            <div class="card-image">
-                                <img src="img/7.jpeg" alt="" class="card-img">
-                            </div>
-                        </div>
-                        <div class="card-content">
-                            <h2 class="name">Project 1</h2>
-                            <p class="description">The lorem text the section that contains header with having open functionality. Lorem dolor sit amet consectetur adipisicing elit.</p>
-                            <button class="button">View More</button>
-                        </div>
-                    </div>
-                    <div class="card swiper-slide">
-                        <div class="image-content">
-                            <span class="overlay"></span>
-                            <div class="card-image">
-                                <img src="img/8.jpeg" alt="" class="card-img">
-                            </div>
-                        </div>
-                        <div class="card-content">
-                            <h2 class="name">Project 1</h2>
-                            <p class="description">The lorem text the section that contains header with having open functionality. Lorem dolor sit amet consectetur adipisicing elit.</p>
-                            <button class="button">View More</button>
-                        </div>
-                    </div>
-                    <div class="card swiper-slide">
-                        <div class="image-content">
-                            <span class="overlay"></span>
-                            <div class="card-image">
-                                <img src="img/9.jpeg" alt="" class="card-img">
-                            </div>
-                        </div>
-                        <div class="card-content">
-                            <h2 class="name">Project 1</h2>
-                            <p class="description">The lorem text the section that contains header with having open functionality. Lorem dolor sit amet consectetur adipisicing elit.</p>
-                            <button class="button">View More</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="swiper-button-next swiper-navBtn"></div>
-            <div class="swiper-button-prev swiper-navBtn"></div>
-            <div class="swiper-pagination"></div>
-        </div>
+
     </section>
     <section class="aboutus">
         <div class="bg">
@@ -260,7 +128,7 @@
             </div>
         </div>
     </section>
-    <section class="contact">
+    <section id="contact">
         <div class="bg">
             <div class="formcontainer">
                 <div class="form_container">
@@ -292,63 +160,5 @@
             </div>
         </div>
     </section>
-    {{!-- <script>
-        function removeDiv(btnstate){
-            const errDiv = document.getElementById("error");
-            errDiv.parentNode.removeChild(errDiv);
-        }
-    </script>
-    <script>
-        const btntop = document.querySelector("#btntop");
-
-        btntop.addEventListener("click", function () {
-            window.scrollTo(0, 0);
-        });  
-    </script>
-    <script>
-        const btntop2 = document.querySelector("#btntop2");
-
-        btntop2.addEventListener("click", function () {
-            window.scrollTo(0, 0);
-        });
-    </script>
-    <script>
-        const openPopUp = document.querySelectorAll('[data-popup-target]');
-        const closePopUp = document.querySelectorAll('[data-close-button]');
-        const overlay = document.getElementById('overlay');
-
-        openPopUp.forEach(button => {
-            button.addEventListener('click', () => {
-                const popup = document.querySelector(button.dataset.popupTarget)
-                openPopup(popup)
-            })
-        })
-
-        overlay.addEventListener('click', () => {
-            const popups = document.querySelectorAll('.popup.active')
-            popups.forEach(popup => {
-                closePopup(popup)
-            })
-        })
-
-        closePopUp.forEach(button => {
-            button.addEventListener('click', () => {
-                const popup = button.closest('.popup')
-                closePopup(popup)
-            })
-        })
-
-        function openPopup(popup) {
-            if (popup == null) return
-            popup.classList.add('active')
-            overlay.classList.add('active')
-        }
-
-        function closePopup(popup) {
-            if (popup == null) return
-            popup.classList.remove('active')
-            overlay.classList.remove('active')
-        }
-    </script> --}}
 </body>
 </html>
