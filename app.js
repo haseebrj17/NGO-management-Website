@@ -477,7 +477,7 @@ app.get("/Tasks", auth, async (req, res) => {
 
     console.log(mergedObject)
 
-    res.render("Tasks.hbs", mergedObject);
+    res.render("tasks.hbs", mergedObject);
   } else {
     logData.loggedIn = false;
     res.render("index.hbs");
